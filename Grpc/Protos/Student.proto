@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+option csharp_namespace = "Grpc";
+service Student{
+	rpc GetStudent(StudentLookUp) returns (StudentInfo);
+	rpc GetAllStudents(StudentAllLoopUp) returns( stream StudentInfo);
+}
+ message StudentAllLoopUp{
+
+ }
+message StudentLookUp{
+	int32 id=1;
+}
+
+message UserInfo{
+	int32 id=1;
+	string name=2;
+	string surname=3;
+	bool gender=4;
+
+}
+
+message StudentInfo{
+	UserInfo user=1;
+	double gpa=2;
+}
